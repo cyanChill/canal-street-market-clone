@@ -1,0 +1,18 @@
+:root {
+  --blue: #5ea3ec;
+  --red: #f64444;
+  --orange: #ffb400;
+  --white: #fff;
+  --black: #000;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
