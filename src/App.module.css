@@ -1,0 +1,42 @@
+.wrapper {
+  display: flex;
+}
+
+.logo {
+  position: sticky;
+  top: 0;
+  max-width: 3em;
+  aspect-ratio: 1;
+  z-index: 100;
+}
+
+.logo > img {
+  width: 100%;
+  margin-block: 2em;
+  margin-inline: 0.5em;
+}
+
+/* Navigation Container */
+.navContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: flex-grow 500ms;
+}
+
+/* Main Content */
+.tabContent {
+  width: 100%;
+  height: 100%;
+  margin-top: 7.5em;
+  z-index: 100;
+  opacity: 0;
+  transition: opacity 500ms;
+}
+
+.tabContent.show {
+  opacity: 1;
+}
