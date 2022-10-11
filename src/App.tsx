@@ -32,7 +32,7 @@ const App = () => {
       <main
         style={
           {
-            "--content-shift": `${currTabIdx * 53}px`,
+            "--content-shift": `${64 + currTabIdx * 53}px`,
             "--right-padding": `${(SiteTabs.length - 1 - currTabIdx) * 53}px`,
           } as React.CSSProperties
         }

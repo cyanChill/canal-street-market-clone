@@ -4,9 +4,8 @@
 }
 
 .logo {
-  position: sticky;
+  position: fixed;
   top: 2em;
-  height: 100%;
   max-width: 3em;
   z-index: 100;
   margin-inline: 0.5em;
@@ -23,7 +22,6 @@
   min-height: 100vh; /* Temporary */
 
   margin-top: 7.5em;
-  padding: 1em;
 
   z-index: 100;
   opacity: 0;
@@ -43,9 +41,5 @@
 @media (min-width: 768px) {
   .wrapper {
     flex-direction: row;
-  }
-
-  .tabContent {
-    padding: 0;
   }
 }

@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from "react";
 
-import styles from "./NavTab.module.css";
+import styles from "./DesktopNavTab.module.css";
 import { SiteTabs } from "../../data";
 import useTransitionContext from "../../hooks/useTransitionContext";
 
-interface NavTabProps {
+interface DesktopNavTabProps {
   idx: number;
 }
 
-const NavTab = ({ idx }: NavTabProps) => {
+const DesktopNavTab = ({ idx }: DesktopNavTabProps) => {
   const { currRoute, nextRoute } = useTransitionContext();
   const [init, setInit] = useState(false);
 
   const { color, first, name, delay } = SiteTabs[idx];
 
   const tabStyles = { "--tab-clr": color, "--delay": delay };
-  const isActive = currRoute === `/${name.english}`;
+  const isActive = first ? currRoute === `/` : currRoute === `/${name.english}`;
 
   useEffect(() => {
     setInit(true);
@@ -23,7 +23,7 @@ const NavTab = ({ idx }: NavTabProps) => {
   }, []);
 
   const selectRoute = () => {
-    nextRoute(idx);
+    if (!isActive) nextRoute(idx);
   };
 
   return (
@@ -34,11 +34,15 @@ const NavTab = ({ idx }: NavTabProps) => {
       } ${isActive ? styles.active : ""}`}
     >
       <div className={styles.tabLabel} onClick={selectRoute}>
-        <p>{name?.chinese}</p>
-        <span>{name?.english}</span>
+        {!first && (
+          <>
+            <p>{name?.chinese}</p>
+            <span>{name?.english}</span>
+          </>
+        )}
       </div>
     </div>
   );
 };
 
-export default NavTab;
+export default DesktopNavTab;
