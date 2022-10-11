@@ -1,41 +1,44 @@
+import React, { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 
 import styles from "./App.module.css";
+import { SiteTabs } from "./data";
 import useTransitionContext from "./hooks/useTransitionContext";
-import NavTab from "./components/layout/NavTab";
+import useResizeContext from "./hooks/useResizeContext";
+import Navigation from "./components/layout/Navigation";
 
 const App = () => {
-  const { inProgress } = useTransitionContext();
-  
+  const { inProgress, currTabIdx } = useTransitionContext();
+  const { isMobile } = useResizeContext();
+
+  const [initialLoad, setInitalLoad] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setInitalLoad(true);
+    }, 2500);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
+
   return (
     <div className={styles.wrapper}>
-      <div className={styles.logo}>
-        <img src="/assets/logo.png" alt="" />
-      </div>
+      <img src="/assets/logo.png" alt="" className={styles.logo} />
 
-      <nav className={styles.navContainer}>
-        <NavTab color="var(--white)" first delay="450ms" />
-
-        <NavTab
-          color="var(--blue)"
-          name={{ english: "food", chinese: "餐饮" }}
-          delay="300ms"
-        />
-
-        <NavTab
-          color="var(--red)"
-          name={{ english: "retail", chinese: "購物" }}
-          delay="150ms"
-        />
-
-        <NavTab
-          color="var(--orange)"
-          name={{ english: "community", chinese: "文化" }}
-        />
-      </nav>
+      <Navigation />
 
       <main
-        className={`${styles.tabContent} ${!inProgress ? styles.show : ""}`}
+        style={
+          {
+            "--content-shift": `${currTabIdx * 53}px`,
+            "--right-padding": `${(SiteTabs.length - 1 - currTabIdx) * 53}px`,
+          } as React.CSSProperties
+        }
+        className={`${styles.tabContent} ${
+          !inProgress && initialLoad ? styles.show : ""
+        } ${isMobile ? styles.mobile : ""}`}
       >
         <Routes>
           <Route path="food" element={<div>Tab Content 2</div>} />
