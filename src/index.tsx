@@ -4,6 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 
 import "./index.css";
 import { TransitionProvider } from "./context/TransitionContext";
+import { ResizeProvider } from "./context/ResizeContext";
 import App from "./App";
 
 const root = ReactDOM.createRoot(
@@ -13,9 +14,11 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <TransitionProvider>
-        <App />
-      </TransitionProvider>
+      <ResizeProvider>
+        <TransitionProvider>
+          <App />
+        </TransitionProvider>
+      </ResizeProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

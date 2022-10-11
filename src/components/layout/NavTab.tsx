@@ -1,37 +1,29 @@
 import React, { useState, useEffect } from "react";
 
 import styles from "./NavTab.module.css";
+import { SiteTabs } from "../../data";
 import useTransitionContext from "../../hooks/useTransitionContext";
 
 interface NavTabProps {
-  color: string;
-  first?: boolean;
-  name?: { english: string; chinese: string };
-  delay?: string;
+  idx: number;
 }
 
-const NavTab = ({
-  color,
-  first,
-  name = { english: "", chinese: "" },
-  delay,
-}: NavTabProps) => {
-  const { currRoute, inProgress, nextRoute } = useTransitionContext();
+const NavTab = ({ idx }: NavTabProps) => {
+  const { currRoute, nextRoute } = useTransitionContext();
   const [init, setInit] = useState(false);
+
+  const { color, first, name, delay } = SiteTabs[idx];
 
   const tabStyles = { "--tab-clr": color, "--delay": delay };
   const isActive = currRoute === `/${name.english}`;
 
   useEffect(() => {
     setInit(true);
-
-    if (isActive) {
-      document.body.style.backgroundColor = color;
-    }
+    if (isActive) document.body.style.backgroundColor = color;
   }, []);
 
   const selectRoute = () => {
-    nextRoute(`/${name.english}`);
+    nextRoute(idx);
   };
 
   return (
