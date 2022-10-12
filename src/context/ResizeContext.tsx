@@ -7,7 +7,7 @@ const ResizeContext = createContext({
 });
 
 const ResizeProvider = ({ children }: ProviderInterface) => {
-  const [isMobile, setIsMobile] = useState<boolean>(false);
+  const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 768);
 
   useEffect(() => {
     const handleResize = (e: Event) => {

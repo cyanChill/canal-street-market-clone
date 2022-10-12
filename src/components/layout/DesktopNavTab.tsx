@@ -14,7 +14,7 @@ const DesktopNavTab = ({ idx }: DesktopNavTabProps) => {
 
   const { color, first, name, delay } = SiteTabs[idx];
 
-  const tabStyles = { "--tab-clr": color, "--delay": delay };
+  const tabStyles = { "--tab-clr": color, "--delay": delay.desktop };
   const isActive = first ? currRoute === `/` : currRoute === `/${name.english}`;
 
   useEffect(() => {

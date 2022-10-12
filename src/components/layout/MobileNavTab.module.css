@@ -1,0 +1,27 @@
+.wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--tab-clr);
+}
+
+.wrapper:hover {
+  cursor: pointer;
+}
+
+.wrapper.opening {
+  transition: transform 250ms ease-out;
+  transform-origin: var(--scale-origin);
+  transform: scale(2);
+}
+
+.tabLabel {
+  font-family: var(--ff-accent);
+  font-size: 1.15em;
+  font-weight: 700;
+  text-transform: capitalize;
+  rotate: var(--rotation);
+}

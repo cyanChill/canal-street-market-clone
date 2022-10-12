@@ -24,3 +24,8 @@ body {
   font-family: var(--ff-primary);
   transition: background-color 300ms;
 }
+
+/* Visually remove scrollbars */
+::-webkit-scrollbar {
+  width: 0;
+}

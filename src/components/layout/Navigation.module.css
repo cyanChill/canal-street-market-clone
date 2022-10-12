@@ -1,4 +1,67 @@
+/* Mobile Styling */
+.mobileNavContainer {
+  z-index: 150;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+}
+
+.mobileNavContainer.show {
+  overflow-y: scroll;
+}
+
+/* Button to open/close nav menu */
+.mobileNavControl {
+  z-index: 200;
+  display: flex;
+  position: fixed;
+  top: 2em;
+  right: 2em;
+
+  color: var(--black);
+  transition: transform 500ms;
+}
+
+.mobileNavControl.open {
+  transform: translateX(50%);
+}
+
+.navControl {
+  width: 2em;
+  height: 2em;
+  opacity: 0;
+  transition: opacity 500ms;
+}
+
+.navControl.show {
+  opacity: 1;
+}
+
+/* Container for the tabs + extra info */
+.mobileNavContent {
+  opacity: 1;
+  transition: opacity 500ms;
+}
+
+.mobileNavContent.hidden {
+  /* display: none; */
+  opacity: 0;
+  pointer-events: none;
+}
+
+.mobileTabs {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  grid-template-rows: repeat(2, 40vh);
+}
+
+.info {
+  background-color: var(--white);
+}
+
+/* Desktop Styling */
 .desktopNavContainer {
+  z-index: 50;
   width: 100%;
   height: 100%;
   display: flex;
@@ -6,6 +69,13 @@
   top: 0;
   left: 0;
   transition: flex-grow 500ms;
+}
+
+@media (min-width: 768px) {
+  .mobileNavContainer {
+    visibility: hidden;
+    pointer-events: none;
+  }
 }
 
 @media (max-width: 768px) {

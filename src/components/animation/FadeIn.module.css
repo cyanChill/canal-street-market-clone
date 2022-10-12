@@ -1,0 +1,10 @@
+.wrapper {
+  opacity: 0;
+  transition: opacity var(--duration) ease-out;
+}
+
+.wrapper.init {
+  opacity: 1;
+  transition: opacity calc(var(--duration) + var(--delay)) ease-out
+    var(--delay);
+}
