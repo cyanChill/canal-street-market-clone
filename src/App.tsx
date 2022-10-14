@@ -14,9 +14,10 @@ const App = () => {
   const [initialLoad, setInitalLoad] = useState(false);
 
   useEffect(() => {
+    const initLoadDur = isMobile ? 500 : 2500;
     const timer = setTimeout(() => {
       setInitalLoad(true);
-    }, 2500);
+    }, initLoadDur);
 
     return () => {
       clearTimeout(timer);

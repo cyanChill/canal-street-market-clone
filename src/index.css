@@ -29,3 +29,17 @@ body {
 ::-webkit-scrollbar {
   width: 0;
 }
+
+/* Button Styles */
+.btn {
+  width: 100%;
+  padding: 1.25em;
+  font-family: var(--ff-accent);
+  font-size: 1em;
+  background-color: transparent;
+  border: 1px solid var(--black);
+}
+
+.btn:hover {
+  cursor: pointer;
+}

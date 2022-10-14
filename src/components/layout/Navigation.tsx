@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import { SlSocialFacebook, SlSocialInstagram } from "react-icons/sl";
 
 import styles from "./Navigation.module.css";
 import { TimerType } from "../../util/types";
@@ -75,7 +76,7 @@ const Navigation = () => {
 
           <FadeIn duration={"250ms"} delay={"600ms"} visible={tabVisible}>
             <div className={styles.info}>
-              <button>become a vendor</button>
+              <button className="btn">become a vendor</button>
               <p>
                 256 Canal Street
                 <br />
@@ -96,9 +97,13 @@ const Navigation = () => {
 
               <a href="##">Email us</a>
 
-              <div>
-                <button>Facebook</button>
-                <button>Instagram</button>
+              <div className={styles.linksContainer}>
+                <button className="btn">
+                  <SlSocialFacebook />
+                </button>
+                <button className="btn">
+                  <SlSocialInstagram />
+                </button>
               </div>
             </div>
           </FadeIn>

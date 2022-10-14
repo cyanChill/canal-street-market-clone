@@ -52,11 +52,40 @@
 .mobileTabs {
   display: grid;
   grid-template-columns: repeat(2, 50%);
-  grid-template-rows: repeat(2, 40vh);
+  grid-template-rows: repeat(2, 42.5vh);
 }
 
+/* Contains button for contact & hours */
 .info {
+  padding: 1.5em;
+  font-family: var(--ff-accent);
   background-color: var(--white);
+}
+
+.info > p {
+  margin-block: 2em;
+  line-height: 1.5;
+}
+
+.info > a {
+  display: block;
+  margin-block: 2em;
+  font-size: 0.9em;
+  color: var(--black);
+}
+
+/* Container for Links */
+.linksContainer {
+  display: flex;
+  gap: 2em;
+}
+
+.linksContainer > button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.45em 0.5em;
+  font-size: 1.75em;
 }
 
 /* Desktop Styling */
