@@ -36,3 +36,33 @@ export const SiteTabs = [
     scaleOrigin: "bottom right",
   },
 ];
+
+export const HomePageCards = [
+  {
+    id: "1",
+    image: "/assets/home_page_1.jpg",
+    description:
+      "Merging retail, food, art, and culture, Canal Street Market highlights top retail and design concepts, restaurants, and up-and-coming players in the downtown New York City community.",
+  },
+  {
+    id: "2",
+    image: "/assets/home_page_2.jpg",
+    description: "Retail Market Hours:<br />Fri - Sun: 11:00AM - 7:00PM",
+  },
+  {
+    id: "3",
+    image: "/assets/home_page_3.jpg",
+    description:
+      "Food Hall Hours:<br />Mon - Thurs: 11:00AM - 6:00PM<br />Fri - Sun: 11:00AM - 7:00PM",
+  },
+];
+
+export const HomeEvents = [
+  { date: "10/22", description: "Small Business Retail Pop Up Weekend!" },
+  {
+    date: "02/07",
+    description:
+      "New Balance x Paperboy Paris by Greenhouse @ Canal Street Market",
+  },
+  { date: "12/11", description: "Hack City 12/11" },
+];

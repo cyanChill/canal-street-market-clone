@@ -6,6 +6,7 @@ import { SiteTabs } from "./data";
 import useTransitionContext from "./hooks/useTransitionContext";
 import useResizeContext from "./hooks/useResizeContext";
 import Navigation from "./components/layout/Navigation";
+import AboutPage from "./pages/About";
 
 const App = () => {
   const { inProgress, currTabIdx } = useTransitionContext();
@@ -45,7 +46,7 @@ const App = () => {
           <Route path="food" element={<div>Tab Content 2</div>} />
           <Route path="retail" element={<div>Tab Content 3</div>} />
           <Route path="community" element={<div>Tab Content 4</div>} />
-          <Route path="*" element={<div>Tab Content 1</div>} />
+          <Route path="*" element={<AboutPage />} />
         </Routes>
       </main>
     </div>

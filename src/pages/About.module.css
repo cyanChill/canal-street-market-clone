@@ -1,0 +1,155 @@
+.wrapper {
+  padding: 1em;
+}
+
+.headingText {
+  letter-spacing: -1.25px;
+  line-height: 1.1;
+  font-weight: 500;
+  font-size: 2em;
+}
+
+.h1Text {
+  letter-spacing: -1.25px;
+  line-height: 1.1;
+  font-weight: 500;
+  font-size: 2em;
+}
+
+.hero {
+  width: calc(100% + 2em);
+  margin-inline-start: -1em;
+}
+
+.secondaryHeading {
+  margin-block: 1em 0.75em;
+}
+
+.cardsContainer {
+  display: grid;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+
+  letter-spacing: 0.5px;
+  line-height: 1.3;
+  font-size: 0.9em;
+  font-weight: 500;
+  font-family: var(--ff-accent);
+}
+
+.card > img {
+  width: 100%;
+}
+
+.eventsHeading {
+  --font-size: 2em;
+
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2em;
+}
+
+.eventsHeading > :not(:nth-child(2)) {
+  font-size: var(--font-size);
+}
+
+.eventsHeading > :nth-child(2) {
+  font-weight: 500;
+  font-size: calc(var(--font-size) * 2);
+}
+
+.eventList {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  gap: 3em;
+  padding: 3em;
+  margin-block: 3em;
+
+  /* Get 2 sets of dashed rows */
+  background-image: linear-gradient(90deg, #000 50%, transparent 0),
+    linear-gradient(90deg, #000 50%, transparent 0),
+    linear-gradient(90deg, #000 50%, transparent 0),
+    linear-gradient(90deg, #000 50%, transparent 0);
+  /* 1st two sets are for 1st row of dash, last two sets for last row of dash */
+  background-position: 0 0, 0 14px, 0 calc(100% - 14px), 0 100%;
+  /* Repeat the gradient to get the dashed effect for each "row" */
+  background-repeat: repeat-x, repeat-x, repeat-x, repeat-x;
+  background-size: 24px 1px, 24px 1px, 24px 1px, 24px 1px;
+
+  animation: eventBorder 800ms linear infinite normal;
+}
+
+.event {
+  width: 33%;
+  margin-block: 2em;
+  line-height: 1.5;
+  text-align: center;
+  font-size: 1.25em;
+  font-weight: 500;
+}
+
+.eventBtn {
+  width: fit-content;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 25%);
+  padding-inline: 3em;
+  background-color: var(--white);
+}
+
+@media (min-width: 768px) {
+  .wrapper {
+    padding: 2em;
+    padding-inline-end: 3em;
+  }
+
+  .headingText {
+    --font-size: 5.25em;
+    font-size: var(--font-size);
+  }
+
+  .hero {
+    /* Get image to full width of container */
+    width: calc(100% + 11.05em);
+    margin-inline-start: -8em;
+  }
+
+  .secondaryHeading {
+    max-width: 12ch;
+  }
+
+  .cardsContainer {
+    column-gap: 4em;
+    grid-template-columns: repeat(3, calc((100% - 8em) / 3));
+  }
+
+  .eventsHeading {
+    --font-size: 3em;
+
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5em;
+  }
+
+  .eventList {
+    gap: 5em;
+  }
+}
+
+@keyframes eventBorder {
+  to {
+    background-position: 0 0, 0 14px, 0 calc(100% - 14px), 0 100%;
+  }
+  from {
+    background-position: 24px 0, 24px 14px, -24px calc(100% - 14px), -24px 100%;
+  }
+}
