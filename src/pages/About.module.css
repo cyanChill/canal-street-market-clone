@@ -2,14 +2,8 @@
   padding: 1em;
 }
 
+/* Main heading styling base */
 .headingText {
-  letter-spacing: -1.25px;
-  line-height: 1.1;
-  font-weight: 500;
-  font-size: 2em;
-}
-
-.h1Text {
   letter-spacing: -1.25px;
   line-height: 1.1;
   font-weight: 500;
@@ -21,6 +15,7 @@
   margin-inline-start: -1em;
 }
 
+/* Market info */
 .secondaryHeading {
   margin-block: 1em 0.75em;
 }
@@ -45,6 +40,7 @@
   width: 100%;
 }
 
+/* Events section */
 .eventsHeading {
   --font-size: 2em;
 
@@ -53,6 +49,7 @@
   flex-direction: column;
   align-items: center;
   gap: 2em;
+  text-align: center;
 }
 
 .eventsHeading > :not(:nth-child(2)) {
@@ -105,6 +102,37 @@
   background-color: var(--white);
 }
 
+/* Location section */
+.locationContainer {
+  display: grid;
+}
+
+.locationTxt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 3em;
+}
+
+.locationTxt > span {
+  max-width: 12ch;
+  padding: 0.25em;
+}
+
+.locationImg {
+  width: 100%;
+  padding: 1px;
+  overflow: hidden;
+}
+
+.locationImg > :first-child {
+  height: 100%;
+  width: 100%;
+  object-position: center;
+  object-fit: cover;
+}
+
 @media (min-width: 768px) {
   .wrapper {
     padding: 2em;
@@ -137,11 +165,20 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 5em;
+    gap: 4.5em;
   }
 
   .eventList {
     gap: 5em;
+  }
+
+  .locationContainer {
+    column-gap: 2em;
+    grid-template-columns: repeat(2, calc((100% - 3em) / 2));
+  }
+
+  .locationTxt {
+    font-size: 4em;
   }
 }
 
