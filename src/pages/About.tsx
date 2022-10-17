@@ -3,7 +3,7 @@ import React from "react";
 import styles from "./About.module.css";
 import { HomePageCards, HomeEvents } from "../data";
 import useObserver from "../hooks/useObserver";
-import Contact from "../components/contact/Contact";
+import Footer from "../components/footer/Footer";
 
 const AboutPage = () => {
   return (
@@ -60,8 +60,8 @@ const AboutPage = () => {
         </div>
       </div>
 
-      {/* Contact Section */}
-      <Contact />
+      {/* Footer Section */}
+      <Footer />
     </div>
   );
 };

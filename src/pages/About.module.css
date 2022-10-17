@@ -4,6 +4,7 @@
 
 /* Main heading styling base */
 .headingText {
+  max-width: 25ch;
   letter-spacing: -1.25px;
   line-height: 1.1;
   font-weight: 500;
@@ -104,6 +105,7 @@
 
 /* Location section */
 .locationContainer {
+  height: 17.5em;
   display: grid;
 }
 
@@ -116,7 +118,7 @@
 }
 
 .locationTxt > span {
-  max-width: 12ch;
+  max-width: 15ch;
   padding: 0.25em;
 }
 
@@ -178,7 +180,7 @@
   }
 
   .locationTxt {
-    font-size: 4em;
+    font-size: clamp(2.75em, 5vw, 4em);
   }
 }
 

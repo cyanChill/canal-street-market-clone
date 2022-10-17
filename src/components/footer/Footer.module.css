@@ -1,0 +1,119 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  margin-block: 2em;
+}
+
+.vendor {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 2em;
+  padding-block: 3em;
+
+  background-image: repeating-linear-gradient(
+      -74deg,
+      rgba(0, 0, 0, 0.2),
+      rgba(0, 0, 0, 0.2) 1px,
+      transparent 0,
+      transparent 4px
+    ),
+    repeating-linear-gradient(
+      -74deg,
+      rgba(0, 0, 0, 0.2),
+      rgba(0, 0, 0, 0.2) 1px,
+      transparent 0,
+      transparent 4px
+    );
+  background-position: 0 0, 0 100%;
+  background-size: 100% 12px, 100% 12px;
+  background-repeat: repeat-x, repeat-x;
+}
+
+.vendor > h2 {
+  margin: 0.5em;
+  font-size: 3em;
+}
+
+.vendorBtn {
+  width: fit-content;
+}
+
+.socials {
+  display: flex;
+  justify-content: space-around;
+  gap: 1em;
+}
+
+.socialItem {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3em clamp(1.25em, 1vw, 2em);
+  font-size: 1.35em;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  color: var(--black);
+}
+
+.socialItem > :first-child {
+  font-size: 1.45em;
+}
+
+.socialItem > span {
+  max-width: 20ch;
+}
+
+.newsletter {
+  display: flex;
+  justify-content: space-between;
+  gap: 1em;
+  padding: 2em;
+}
+
+.newsletter > :first-child {
+  max-width: 20ch;
+  margin-inline-end: 1em;
+  font-family: var(--ff-accent);
+  font-size: 1.35em;
+  font-weight: 600;
+}
+
+.emailForm {
+  position: relative;
+  flex: 1;
+  margin-inline-start: 1em;
+}
+
+.emailForm > input {
+  height: 100%;
+  width: 100%;
+  padding: 0.5em 1.25em;
+  font-size: 0.9em;
+  font-family: var(--ff-accent);
+  border: 1px solid var(--black);
+}
+
+.emailForm > input::placeholder {
+  color: var(--black);
+}
+
+.submit {
+  position: absolute;
+  top: 50%;
+  right: 1em;
+  transform: translateY(-50%);
+  padding: 0 0.25em;
+  margin: 0;
+  font-size: 1.25em;
+  border: 0;
+  background-color: transparent;
+}
+
+.submit:hover {
+  cursor: pointer;
+}
