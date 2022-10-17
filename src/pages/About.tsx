@@ -1,11 +1,36 @@
 import React from "react";
 
 import styles from "./About.module.css";
-import { HomePageCards, HomeEvents } from "../data";
+import { HomeEvents } from "../data";
 import useObserver from "../hooks/useObserver";
 import Footer from "../components/footer/Footer";
 
 const AboutPage = () => {
+  const { containerRef: heroRef, isSeen: heroSeen } =
+    useObserver<HTMLImageElement>({
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.3,
+    });
+  const { containerRef: mkt1Ref, isSeen: mkt1Seen } =
+    useObserver<HTMLImageElement>({
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.5,
+    });
+  const { containerRef: mkt2Ref, isSeen: mkt2Seen } =
+    useObserver<HTMLImageElement>({
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.5,
+    });
+  const { containerRef: mkt3Ref, isSeen: mkt3Seen } =
+    useObserver<HTMLImageElement>({
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.5,
+    });
+
   return (
     <div className={styles.wrapper}>
       <h1 className={styles.headingText}>
@@ -15,7 +40,12 @@ const AboutPage = () => {
         weekend!
       </h1>
 
-      <img src="/assets/hero.jpg" alt="" className={styles.hero} />
+      <img
+        src="/assets/hero.jpg"
+        alt=""
+        className={`${styles.hero} ${heroSeen ? styles.visible : ""}`}
+        ref={heroRef}
+      />
 
       {/* Market Info */}
       <h2
@@ -25,12 +55,49 @@ const AboutPage = () => {
         A New Kind of Market
       </h2>
       <div className={styles.cardsContainer}>
-        {HomePageCards.map((info) => (
-          <div key={info.id} className={styles.card}>
-            <img src={info.image} alt="" />
-            <p dangerouslySetInnerHTML={{ __html: info.description }}></p>
-          </div>
-        ))}
+        <div className={styles.card}>
+          <img
+            src="/assets/home_page_1.jpg"
+            alt=""
+            ref={mkt1Ref}
+            className={`${styles.cardImg} ${mkt1Seen ? styles.visible : ""}`}
+          />
+          <p>
+            Merging retail, food, art, and culture, Canal Street Market
+            highlights top retail and design concepts, restaurants, and
+            up-and-coming players in the downtown New York City community.
+          </p>
+        </div>
+
+        <div className={styles.card}>
+          <img
+            src="/assets/home_page_2.jpg"
+            alt=""
+            ref={mkt2Ref}
+            className={`${styles.cardImg} ${mkt2Seen ? styles.visible : ""}`}
+          />
+          <p>
+            Retail Market Hours:
+            <br />
+            Fri - Sun: 11:00AM - 7:00PM
+          </p>
+        </div>
+
+        <div className={styles.card}>
+          <img
+            src="/assets/home_page_3.jpg"
+            alt=""
+            ref={mkt3Ref}
+            className={`${styles.cardImg} ${mkt3Seen ? styles.visible : ""}`}
+          />
+          <p>
+            Food Hall Hours:
+            <br />
+            Mon - Thurs: 11:00AM - 6:00PM
+            <br />
+            Fri - Sun: 11:00AM - 7:00PM
+          </p>
+        </div>
       </div>
 
       {/* Events stuff */}
@@ -41,7 +108,7 @@ const AboutPage = () => {
       </div>
       <div className={styles.eventList}>
         {HomeEvents.map((event) => (
-          <p className={styles.event}>
+          <p key={event.id} className={styles.event}>
             {event.date}
             <br />
             {event.description}

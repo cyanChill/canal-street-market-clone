@@ -14,6 +14,12 @@
 .hero {
   width: calc(100% + 2em);
   margin-inline-start: -1em;
+  opacity: 0;
+  transition: opacity 350ms;
+}
+
+.hero.visible {
+  opacity: 1;
 }
 
 /* Market info */
@@ -37,8 +43,14 @@
   font-family: var(--ff-accent);
 }
 
-.card > img {
+.cardImg {
   width: 100%;
+  opacity: 0;
+  transition: opacity 350ms;
+}
+
+.cardImg.visible {
+  opacity: 1;
 }
 
 /* Events section */

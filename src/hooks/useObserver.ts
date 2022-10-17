@@ -8,19 +8,25 @@ type optionsType = {
 
 type entriesType = IntersectionObserverEntry[];
 
-const DEFAULT_OPTIONS: optionsType = {
-  root: null,
-  rootMargin: "0px",
-  threshold: 0.5,
-};
+/*
+  Example Options:
+  { root: null, rootMargin: "0px", threshold: 0.5 }
+*/
 
-const useObserver = (options = DEFAULT_OPTIONS) => {
-  const containerRef = useRef<HTMLElement>();
+const useObserver = <T extends HTMLElement>(options: optionsType) => {
+  const containerRef = useRef<T | null>(null);
 
+  const [init, setInit] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [isSeen, setIsSeen] = useState(false);
 
   const callbackFunc = (entries: entriesType) => {
+    /* To prevent false "isSeen" values */
+    if (!init) {
+      setInit(true);
+      return;
+    }
+
     const [entry] = entries;
     setIsVisible(entry.isIntersecting);
     if (entry.isIntersecting && !isSeen) setIsSeen(true);
