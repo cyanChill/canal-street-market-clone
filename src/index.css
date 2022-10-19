@@ -80,3 +80,34 @@ body {
     background-position: -24px 0, 0 24px, 100% -24px, 24px 100%;
   }
 }
+
+/* Animated underline effect */
+.underlineAnim {
+  background-image: repeating-linear-gradient(
+      -45deg,
+      var(--orange),
+      var(--orange) 1px,
+      transparent 0,
+      transparent 12px
+    ),
+    repeating-linear-gradient(
+      45deg,
+      var(--orange),
+      var(--orange) 1px,
+      transparent 0,
+      transparent 12px
+    );
+  background-position: 0 103%, 2px 103%;
+  background-size: 17px 10px;
+  background-repeat: repeat-x;
+  animation: underlineAnim 800ms linear infinite normal;
+}
+
+@keyframes underlineAnim {
+  to {
+    background-position: 0 103%, 2px 103%;
+  }
+  from {
+    background-position: -17px 103%, -15px 103%;
+  }
+}

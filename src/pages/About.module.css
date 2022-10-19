@@ -1,19 +1,24 @@
 .wrapper {
-  padding: 1em;
+  padding: 2em;
 }
 
 /* Main heading styling base */
 .headingText {
-  max-width: 25ch;
+  --font-size: 2.75em;
+  margin-block: 3.5em 1em;
   letter-spacing: -1.25px;
-  line-height: 1.1;
+  line-height: 1.05;
   font-weight: 500;
-  font-size: 2em;
+  font-size: var(--font-size);
+}
+
+.mockLink:hover {
+  cursor: pointer;
 }
 
 .hero {
-  width: calc(100% + 2em);
-  margin-inline-start: -1em;
+  width: calc(100% + 4em);
+  margin-inline-start: -2em;
   opacity: 0;
   transition: opacity 350ms;
 }
@@ -24,6 +29,7 @@
 
 /* Market info */
 .secondaryHeading {
+  --font-size: 4em !important;
   margin-block: 1em 0.75em;
 }
 
@@ -34,7 +40,7 @@
 .card {
   display: flex;
   flex-direction: column;
-  gap: 2em;
+  gap: 0.5em;
 
   letter-spacing: 0.5px;
   line-height: 1.3;
@@ -77,47 +83,51 @@
 .eventList {
   position: relative;
   display: flex;
-  justify-content: space-around;
-  gap: 3em;
-  padding: 3em;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
   margin-block: 3em;
-
-  /* Get 2 sets of dashed rows */
-  background-image: linear-gradient(90deg, #000 50%, transparent 0),
-    linear-gradient(90deg, #000 50%, transparent 0),
-    linear-gradient(90deg, #000 50%, transparent 0),
-    linear-gradient(90deg, #000 50%, transparent 0);
-  /* 1st two sets are for 1st row of dash, last two sets for last row of dash */
-  background-position: 0 0, 0 14px, 0 calc(100% - 14px), 0 100%;
-  /* Repeat the gradient to get the dashed effect for each "row" */
-  background-repeat: repeat-x, repeat-x, repeat-x, repeat-x;
-  background-size: 24px 1px, 24px 1px, 24px 1px, 24px 1px;
-
-  animation: eventBorder 800ms linear infinite normal;
 }
 
 .event {
-  width: 33%;
-  margin-block: 2em;
+  width: 100%;
+  padding-block: 2em;
+
+  margin: 0;
   line-height: 1.5;
   text-align: center;
   font-size: 1.25em;
   font-weight: 500;
 }
 
+@media (max-width: 768px) {
+  .eventList > :first-child {
+    background-image: linear-gradient(90deg, #000 50%, transparent 0),
+      linear-gradient(90deg, #000 50%, transparent 0),
+      linear-gradient(90deg, #000 50%, transparent 0),
+      linear-gradient(90deg, #000 50%, transparent 0);
+    background-position: 0 0, 0 14px, 0 calc(100% - 14px), 0 100%;
+    background-repeat: repeat-x, repeat-x, repeat-x, repeat-x;
+    background-size: 24px 1px, 24px 1px, 24px 1px, 24px 1px;
+  }
+
+  .event {
+    background-image: linear-gradient(90deg, #000 50%, transparent 0),
+      linear-gradient(90deg, #000 50%, transparent 0);
+    background-position: 0 calc(100% - 14px), 0 100%;
+    background-repeat: repeat-x, repeat-x;
+    background-size: 24px 1px, 24px 1px;
+  }
+}
+
 .eventBtn {
-  width: fit-content;
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translate(-50%, 25%);
   padding-inline: 3em;
   background-color: var(--white);
 }
 
 /* Location section */
 .locationContainer {
-  height: 17.5em;
+  min-height: 15em;
   display: grid;
 }
 
@@ -126,7 +136,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-size: 3em;
+  font-size: 2em;
 }
 
 .locationTxt > span {
@@ -135,9 +145,7 @@
 }
 
 .locationImg {
-  width: 100%;
-  padding: 1px;
-  overflow: hidden;
+  display: none;
 }
 
 .locationImg > :first-child {
@@ -154,8 +162,9 @@
   }
 
   .headingText {
-    --font-size: 5.25em;
-    font-size: var(--font-size);
+    --font-size: 5.45em;
+    max-width: 25ch;
+    margin-block: 1em;
   }
 
   .hero {
@@ -166,11 +175,16 @@
 
   .secondaryHeading {
     max-width: 12ch;
+    margin-block-end: 0.5em;
   }
 
   .cardsContainer {
-    column-gap: 4em;
+    column-gap: 3.5em;
     grid-template-columns: repeat(3, calc((100% - 8em) / 3));
+  }
+
+  .card {
+    gap: 2em;
   }
 
   .eventsHeading {
@@ -179,20 +193,58 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 4.5em;
+    gap: 3.5em;
   }
 
   .eventList {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-around;
     gap: 5em;
+    padding: 3em;
+
+    /* Get 2 sets of dashed rows */
+    background-image: linear-gradient(90deg, #000 50%, transparent 0),
+      linear-gradient(90deg, #000 50%, transparent 0),
+      linear-gradient(90deg, #000 50%, transparent 0),
+      linear-gradient(90deg, #000 50%, transparent 0);
+    /* 1st two sets are for 1st row of dash, last two sets for last row of dash */
+    background-position: 0 0, 0 14px, 0 calc(100% - 14px), 0 100%;
+    /* Repeat the gradient to get the dashed effect for each "row" */
+    background-repeat: repeat-x, repeat-x, repeat-x, repeat-x;
+    background-size: 24px 1px, 24px 1px, 24px 1px, 24px 1px;
+
+    animation: eventBorder 800ms linear infinite normal;
+  }
+
+  .event {
+    width: 33%;
+    margin-block: 2em;
+  }
+
+  .eventBtn {
+    width: fit-content;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 25%);
   }
 
   .locationContainer {
+    height: 17.5em;
     column-gap: 2em;
     grid-template-columns: repeat(2, calc((100% - 3em) / 2));
   }
 
   .locationTxt {
     font-size: clamp(2.75em, 5vw, 4em);
+  }
+
+  .locationImg {
+    display: block;
+    width: 100%;
+    padding: 1px;
+    overflow: hidden;
   }
 }
 

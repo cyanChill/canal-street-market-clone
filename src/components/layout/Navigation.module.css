@@ -4,14 +4,17 @@
   height: 100%;
   width: 100%;
   position: fixed;
+  pointer-events: none;
 }
 
 .mobileNavContainer.show {
+  pointer-events: all;
   overflow-y: scroll;
 }
 
 /* Button to open/close nav menu */
 .mobileNavControl {
+  pointer-events: all !important;
   z-index: 200;
   display: flex;
   position: fixed;
@@ -44,7 +47,6 @@
 }
 
 .mobileNavContent.hidden {
-  /* display: none; */
   opacity: 0;
   pointer-events: none;
 }

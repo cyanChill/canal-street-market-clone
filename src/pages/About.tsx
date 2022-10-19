@@ -36,7 +36,7 @@ const AboutPage = () => {
       <h1 className={styles.headingText}>
         Canal Street Market is a carefully curated retail market, food hall &
         community space open year-round at 265 Canal Street.{" "}
-        <span className={styles.mockLink}>Support Small Business</span> this
+        <span className={`underlineAnim ${styles.mockLink}`}>Support Small Business</span> this
         weekend!
       </h1>
 

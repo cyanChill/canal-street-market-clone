@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import { SlSocialFacebook, SlSocialInstagram } from "react-icons/sl";
 
 import styles from "./Navigation.module.css";
+import useTransitionContext from "../../hooks/useTransitionContext";
 import { TimerType } from "../../util/types";
 import { SiteTabs } from "../../data";
 import DesktopNavTab from "./DesktopNavTab";
@@ -9,12 +10,16 @@ import MobileNavTab from "./MobileNavTab";
 import FadeIn from "../animation/FadeIn";
 
 const Navigation = () => {
+  const { inProgress } = useTransitionContext();
+
   let mobileNavRef = useRef<HTMLDivElement | null>(null);
   let timerRef = useRef<TimerType>();
   const [navOpen, setNavOpen] = useState(false);
   const [tabVisible, setTabVisible] = useState(false);
 
   const toggleNavMenu = () => {
+    if (inProgress) return;
+
     // Used for opening/closing nav menu (no additional action)
     setNavOpen((prev) => {
       if (prev === false) document.body.setAttribute("data-locked", "true");

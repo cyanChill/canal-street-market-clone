@@ -9,9 +9,9 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding: 2em;
-  padding-block: 3em;
+  padding-block: 1.5em;
 
+  text-align: center;
   background-image: repeating-linear-gradient(
       -74deg,
       rgba(0, 0, 0, 0.2),
@@ -33,15 +33,16 @@
 
 .vendor > h2 {
   margin: 0.5em;
-  font-size: 3em;
+  font-size: 2em;
 }
 
 .vendorBtn {
-  width: fit-content;
+  width: 100%;
 }
 
 .socials {
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   gap: 1em;
 }
@@ -52,8 +53,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 3em clamp(1.25em, 1vw, 2em);
-  font-size: 1.35em;
+  gap: 0.25em;
+  padding: 1.25em;
+  font-size: 1.15em;
   font-weight: 500;
   text-align: center;
   text-decoration: none;
@@ -70,6 +72,8 @@
 
 .newsletter {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: space-between;
   gap: 1em;
   padding: 2em;
@@ -77,16 +81,16 @@
 
 .newsletter > :first-child {
   max-width: 20ch;
-  margin-inline-end: 1em;
+  text-align: center;
   font-family: var(--ff-accent);
   font-size: 1.35em;
   font-weight: 600;
 }
 
 .emailForm {
+  width: 100%;
   position: relative;
   flex: 1;
-  margin-inline-start: 1em;
 }
 
 .emailForm > input {
@@ -116,4 +120,41 @@
 
 .submit:hover {
   cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .vendor {
+    padding: 2em;
+    padding-block: 3em;
+  }
+
+  .vendor > h2 {
+    font-size: 3em;
+  }
+
+  .vendorBtn {
+    width: fit-content;
+  }
+
+  .socials {
+    flex-direction: row;
+  }
+
+  .socialItem {
+    padding: 3em clamp(1.25em, 1vw, 2em);
+    font-size: 1.35em;
+  }
+
+  .newsletter {
+    flex-direction: row;
+  }
+
+  .newsletter > :first-child {
+    text-align: start;
+    margin-inline-end: 1em;
+  }
+
+  .emailForm {
+    margin-inline-start: 1em;
+  }
 }
