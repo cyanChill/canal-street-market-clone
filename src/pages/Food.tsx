@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 
 import styles from "./Food.module.css";
 import { FoodVendors } from "../data";
@@ -41,6 +42,9 @@ const FoodPage = () => {
   return (
     <div className={styles.wrapper}>
       <header className={styles.header}>
+        <p className={styles.tabLabel}>
+          Food <HiOutlineArrowNarrowRight />
+        </p>
         <p className={styles.hours}>
           Food Hall Hours:
           <br />

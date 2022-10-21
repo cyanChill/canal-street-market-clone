@@ -3,7 +3,20 @@
 }
 
 .header {
+  position: relative;
   display: grid;
+}
+
+.header .tabLabel {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--grey);
+  letter-spacing: 1px;
+  font-family: var(--ff-accent);
+  transform-origin: center;
+  transform: translateX(-2em) rotate(90deg);
 }
 
 .header .hours {
@@ -155,6 +168,13 @@
   .header {
     gap: 2em;
     grid-template-columns: repeat(2, calc((100% - 2em) / 2));
+  }
+
+  .header .tabLabel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
   }
 
   .header .hours,
