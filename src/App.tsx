@@ -7,6 +7,9 @@ import useTransitionContext from "./hooks/useTransitionContext";
 import useResizeContext from "./hooks/useResizeContext";
 import Navigation from "./components/layout/Navigation";
 import AboutPage from "./pages/About";
+import FoodPage from "./pages/Food";
+import RetailPage from "./pages/Retail";
+import CommunityPage from "./pages/Community";
 
 const App = () => {
   const { inProgress, currTabIdx } = useTransitionContext();
@@ -23,7 +26,7 @@ const App = () => {
     return () => {
       clearTimeout(timer);
     };
-  }, []);
+  }, []); // eslint-disable-line
 
   return (
     <div className={styles.wrapper}>
@@ -43,9 +46,9 @@ const App = () => {
         } ${isMobile ? styles.mobile : ""}`}
       >
         <Routes>
-          <Route path="food" element={<div>Tab Content 2</div>} />
-          <Route path="retail" element={<div>Tab Content 3</div>} />
-          <Route path="community" element={<div>Tab Content 4</div>} />
+          <Route path="food" element={<FoodPage />} />
+          <Route path="retail" element={<RetailPage />} />
+          <Route path="community" element={<CommunityPage />} />
           <Route path="*" element={<AboutPage />} />
         </Routes>
       </main>
