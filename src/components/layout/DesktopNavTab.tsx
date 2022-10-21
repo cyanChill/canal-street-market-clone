@@ -20,7 +20,7 @@ const DesktopNavTab = ({ idx }: DesktopNavTabProps) => {
   useEffect(() => {
     setInit(true);
     if (isActive) document.body.style.backgroundColor = color;
-  }, []);
+  }, []); // eslint-disable-line
 
   const selectRoute = () => {
     if (!isActive) nextRoute(idx);

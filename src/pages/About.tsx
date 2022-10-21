@@ -2,10 +2,13 @@ import React from "react";
 
 import styles from "./About.module.css";
 import { HomeEvents } from "../data";
+import useTransitionContext from "../hooks/useTransitionContext";
 import useObserver from "../hooks/useObserver";
 import Footer from "../components/footer/Footer";
 
 const AboutPage = () => {
+  const { nextRoute } = useTransitionContext();
+
   const { containerRef: heroRef, isSeen: heroSeen } =
     useObserver<HTMLImageElement>({
       root: null,
@@ -36,8 +39,10 @@ const AboutPage = () => {
       <h1 className={styles.headingText}>
         Canal Street Market is a carefully curated retail market, food hall &
         community space open year-round at 265 Canal Street.{" "}
-        <span className={`underlineAnim ${styles.mockLink}`}>Support Small Business</span> this
-        weekend!
+        <span className={`underlineAnim ${styles.mockLink}`}>
+          Support Small Business
+        </span>{" "}
+        this weekend!
       </h1>
 
       <img
@@ -114,7 +119,12 @@ const AboutPage = () => {
             {event.description}
           </p>
         ))}
-        <button className={`btn filled ${styles.eventBtn}`}>see all</button>
+        <button
+          className={`btn filled ${styles.eventBtn}`}
+          onClick={() => nextRoute(3)}
+        >
+          see all
+        </button>
       </div>
 
       {/* Canal St. Market Location */}

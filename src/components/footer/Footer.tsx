@@ -1,9 +1,15 @@
+import React from "react";
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 import { SlPencil, SlSocialFacebook, SlSocialInstagram } from "react-icons/sl";
 
 import styles from "./Footer.module.css";
 
 const Footer = () => {
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Adding user to newsletter...");
+  };
+
   return (
     <footer className={styles.footer}>
       <div className={styles.vendor}>
@@ -37,7 +43,7 @@ const Footer = () => {
 
       <div className={`hoverBorder ${styles.newsletter}`}>
         <span>Stay up to date with our newsletter</span>
-        <form className={styles.emailForm}>
+        <form className={styles.emailForm} onSubmit={handleSubmit}>
           <input type="email" placeholder="Email" />
           <button type="submit" className={styles.submit}>
             <HiOutlineArrowNarrowRight />
