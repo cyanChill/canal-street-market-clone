@@ -30,6 +30,8 @@ const TransitionProvider = ({ children }: ProviderInterface) => {
     clearTimeout(timerRef.current); // Debounce timer
     timerRef.current = setTimeout(() => {
       navigate(SiteTabs[routeIdx].route);
+      // Make sure we're at the top of the page when we switch pages
+      window.scrollTo(0, 0);
       setCurrTabIdx(routeIdx);
       document.body.style.backgroundColor = SiteTabs[routeIdx].color;
     }, 500);
