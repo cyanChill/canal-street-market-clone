@@ -51,3 +51,70 @@ export const HomeEvents = [
   },
   { id: "3", date: "12/11", description: "Hack City 12/11" },
 ];
+
+export const FoodVendors = [
+  {
+    id: "1",
+    company: "Betong",
+    summary: "Khao Man Gai",
+    previewImg: "/assets/food_1.png",
+  },
+  {
+    id: "2",
+    company: "Chinatown Deli",
+    summary: "Coffee, Pastries & Smoothies",
+    previewImg: "/assets/food_2.png",
+  },
+  {
+    id: "3",
+    company: "Daniel Corpuz Chocolatier",
+    summary: "Artisanal Chocolates",
+    previewImg: "/assets/food_3.png",
+  },
+  {
+    id: "4",
+    company: "Enzo Bruni La Pizza Gourmet",
+    summary: "Napoli Style Pizza",
+    previewImg: "",
+  },
+  {
+    id: "5",
+    company: "Joe's Rice and Noodles",
+    summary: "Chinese Classics",
+    previewImg: "",
+  },
+  {
+    id: "6",
+    company: "Joe's Steam Rice Roll",
+    summary: "Cantonese Steamed Rice Rolls",
+    previewImg: "/assets/food_4.png",
+  },
+  {
+    id: "7",
+    company: "Kabisera",
+    summary: "Delicious Filipino Classics",
+    previewImg: "",
+  },
+  {
+    id: "8",
+    company: "Lazy Sundaes",
+    summary: "Bingsoo Sundaes & Bubble Tea",
+    previewImg: "/assets/food_5.png",
+  },
+  {
+    id: "9",
+    company: "Mastunori",
+    summary: "Sushi, Handrolls & Chirashi",
+    previewImg: "/assets/food_6.png",
+  },
+  {
+    id: "10",
+    company: "Mucho Sarap",
+    summary: "COMING SOON",
+    previewImg: "",
+  },
+];
+
+export const Retailers = [];
+
+export const Community = [];
