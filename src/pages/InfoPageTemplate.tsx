@@ -16,6 +16,17 @@ interface InfoPageTemplateProps {
   data: InfoPageDataType[];
 }
 
+const positions = [
+  ["50%", "50%"],
+  ["10%", "40%"],
+  ["55%", "85%"],
+  ["25%", "15%"],
+  ["75%", "70%"],
+  ["15%", "80%"],
+  ["85%", "20%"],
+  ["80%", "45%"],
+];
+
 const InfoPageTemplate = ({
   pageName,
   pageImg,
@@ -26,11 +37,21 @@ const InfoPageTemplate = ({
 }: InfoPageTemplateProps) => {
   const [prevImgQueue, setPrevImgQueue] = useState("");
   const [prevImg, setPrevImg] = useState("");
+  const [selIdx, setSelIdx] = useState(0);
   const [show, setShow] = useState(false);
   const [inProgress, setInProgress] = useState(false);
 
+  const locationStyles = positions.map((pos) => {
+    return {
+      "--top": pos[0],
+      "--left": pos[1],
+      backgroundImage: `url(${prevImg})`,
+    };
+  });
+
   const updatePrevImg = (imgPath: string) => {
     setPrevImgQueue(imgPath);
+    setSelIdx(Math.floor(Math.random() * positions.length));
     setInProgress(true);
   };
 
@@ -61,11 +82,11 @@ const InfoPageTemplate = ({
         </p>
         <p className={styles.hours}>
           {pageName.english} Hours:
-          {hours.map((hour) => (
-            <>
+          {hours.map((hour, idx) => (
+            <React.Fragment key={idx}>
               <br />
               {hour.startDay} - {hour.endDay}: {hour.startTime} - {hour.endTime}
-            </>
+            </React.Fragment>
           ))}
         </p>
         <h1>The {pageName.english}</h1>
@@ -74,10 +95,17 @@ const InfoPageTemplate = ({
       </header>
 
       <div className={styles.list}>
-        <div
-          style={{ backgroundImage: `url(${prevImg})` } as React.CSSProperties}
-          className={`${styles.previewImg} ${show ? styles.show : ""}`}
-        />
+        {locationStyles.map((entry, idx) => {
+          return (
+            <div
+              key={idx}
+              style={entry as React.CSSProperties}
+              className={`${styles.previewImg} ${
+                show && idx === selIdx ? styles.show : ""
+              }`}
+            />
+          );
+        })}
 
         {data.map((entry) => {
           return (

@@ -62,13 +62,16 @@
 }
 
 .previewImg {
+  --top: 50%;
+  --left: 50%;
+
   z-index: -1;
   height: 400px;
   width: 400px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: fixed;
+  top: var(--top);
+  left: var(--left);
+  transform: translate(calc(-1 * var(--left)), calc(-1 * var(--top)));
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
