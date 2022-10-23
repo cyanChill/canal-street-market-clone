@@ -1,17 +1,24 @@
-import React from "react";
-
-import styles from "./Retail.module.css";
 import { Retailers } from "../data";
-import Footer from "../components/footer/Footer";
+import { ReactComponent as RoseSVG } from "../assets/Rose.svg";
+import InfoPageTemplate from "./InfoPageTemplate";
 
 const RetailPage = () => {
   return (
-    <div className={styles.wrapper}>
-      <h1>The Retail Market</h1>
-
-      {/* Footer Section */}
-      <Footer />
-    </div>
+    <InfoPageTemplate
+      pageName={{ short: "Retail", english: "Retail Market", chinese: "購物" }}
+      pageImg="/assets/home_page_2.jpg"
+      hours={[
+        {
+          startDay: "Fri",
+          endDay: "Sun",
+          startTime: "11:00AM",
+          endTime: "7:00PM",
+        },
+      ]}
+      hero={{ primaryText: "The Best of NYC", subText: "All under one roof" }}
+      HeroSVG={RoseSVG}
+      data={Retailers}
+    />
   );
 };
 

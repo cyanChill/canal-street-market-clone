@@ -112,3 +112,74 @@ body {
     background-position: -17px 103%, -15px 103%;
   }
 }
+
+/* Triangle underline effect (top + bottom) */
+.underlineAnim_top_bot {
+  background-image: repeating-linear-gradient(
+      -45deg,
+      var(--black),
+      var(--black) 1px,
+      transparent 0,
+      transparent 71px
+    ),
+    repeating-linear-gradient(
+      45deg,
+      var(--black),
+      var(--black) 1px,
+      transparent 0,
+      transparent 70px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      var(--black),
+      var(--black) 1px,
+      transparent 0,
+      transparent 68px
+    ),
+    repeating-linear-gradient(
+      45deg,
+      var(--black),
+      var(--black) 1px,
+      transparent 0,
+      transparent 68px
+    );
+  background-position: 0 0, 0 0, 0 101%, 0 101%;
+  background-size: 100px 50px, 100px 50px, 93px 50px, 93px 50px;
+  background-repeat: repeat-x;
+  animation: underlineAnim_top_bot 2s linear infinite normal;
+}
+
+@keyframes underlineAnim_top_bot {
+  to {
+    background-position: 0 0, 0 0, 0 101%, 0 101%;
+  }
+  from {
+    background-position: -99px 0, -99px 0, -93px 101%, -93px 101%;
+  }
+}
+
+/* Bounce Effect */
+.bounce {
+  --direction: 1; /* -1 for opposite start direction */
+  --move-amount: 25%;
+  --start-move: calc(var(--direction) * var(--move-amount));
+  animation: bounce 2s linear infinite normal;
+}
+
+@keyframes bounce {
+  0% {
+    translate: 0 0;
+  }
+  25% {
+    translate: 0 var(--start-move);
+  }
+  50% {
+    translate: 0 0;
+  }
+  75% {
+    translate: 0 calc(-1 * var(--start-move));
+  }
+  100% {
+    translate: 0 0;
+  }
+}
