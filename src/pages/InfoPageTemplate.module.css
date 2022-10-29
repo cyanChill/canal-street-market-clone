@@ -120,7 +120,7 @@
   margin-block: 8px;
 }
 
-.hero.subText {
+.hero_subText {
   font-family: var(--ff-accent);
   font-weight: 500;
 }

@@ -4,6 +4,7 @@ import styles from "./About.module.css";
 import { HomeEvents } from "../data";
 import useTransitionContext from "../hooks/useTransitionContext";
 import useObserver from "../hooks/useObserver";
+import EventList from "../components/events/EventList";
 import Footer from "../components/footer/Footer";
 
 const AboutPage = () => {
@@ -111,21 +112,7 @@ const AboutPage = () => {
         <span>Market Events</span>
         <span>活動</span>
       </div>
-      <div className={styles.eventList}>
-        {HomeEvents.map((event) => (
-          <p key={event.id} className={styles.event}>
-            {event.date}
-            <br />
-            {event.description}
-          </p>
-        ))}
-        <button
-          className={`btn filled ${styles.eventBtn}`}
-          onClick={() => nextRoute(3)}
-        >
-          see all
-        </button>
-      </div>
+      <EventList events={HomeEvents} />
 
       {/* Canal St. Market Location */}
       <div className={styles.locationContainer}>

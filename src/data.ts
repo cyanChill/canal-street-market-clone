@@ -209,3 +209,18 @@ export const Retailers = [
 ];
 
 export const Community = [];
+
+export const CommunityPodcasts = [
+  {
+    id: "1",
+    date: "10/28",
+    description:
+      "2022 NWSL Finals Preview + Ballon d'Or Recap + Review of ESPN Truth Be Told Documentary",
+  },
+  {
+    id: "2",
+    date: "10/23",
+    description: "S2E25: Pretty Big Deal Asians with Jenny Arimoto",
+  },
+  { id: "3", date: "05/03", description: "We're back and we're better!" },
+];

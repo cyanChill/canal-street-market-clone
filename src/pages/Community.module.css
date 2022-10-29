@@ -1,0 +1,136 @@
+.wrapper {
+  padding: 2em;
+}
+
+/* Header section */
+.header {
+  position: relative;
+  display: grid;
+}
+
+.tabLabel {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--grey);
+  letter-spacing: 1px;
+  font-family: var(--ff-accent);
+  transform-origin: center;
+  transform: translateX(-2em) rotate(90deg);
+}
+
+.subHeadText {
+  justify-self: end;
+  margin-block: 0 8px;
+  text-align: end;
+  line-height: 1.5;
+  font-size: 0.9em;
+  font-family: var(--ff-accent);
+}
+
+.chinese {
+  justify-self: end;
+  margin-block: 8px;
+  text-align: end;
+  font-size: 3.5em;
+  font-weight: 500;
+}
+
+.header h1 {
+  align-self: center;
+  margin-block: 0 8px;
+  font-size: 4.5em;
+  font-weight: 400;
+}
+
+/* Hero section */
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  padding-block: 5em 1em;
+  margin-top: 3em;
+}
+
+.hero_text {
+  text-align: center;
+}
+
+.hero_primaryText {
+  font-size: 5em;
+  font-weight: 500;
+  margin-block: 8px;
+}
+
+.hero_subText {
+  margin: 0;
+  font-family: var(--ff-accent);
+  font-weight: 500;
+}
+
+.hero_svg {
+  transform: scale(0.5);
+}
+
+@media (min-width: 768px) {
+  .wrapper {
+    padding: 2em;
+    padding-inline-end: 3em;
+    margin-inline-start: -3em;
+  }
+
+  .header {
+    gap: 2em;
+    grid-template-columns: 2fr 1fr;
+  }
+
+  .tabLabel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+  }
+
+  .subHeadText,
+  .chinese {
+    grid-column: span 2;
+  }
+
+  .header h1 {
+    line-height: 0.9;
+    letter-spacing: 1px;
+    font-size: clamp(6em, 10vw, 15em);
+    font-weight: 500;
+  }
+
+  .hero {
+    flex-direction: row;
+    justify-content: space-between;
+    padding-block: 4em 1em;
+  }
+
+  .hero_text {
+    max-width: 35%;
+  }
+
+  .hero_primaryText {
+    font-size: clamp(3em, 7.5vw, 7em);
+  }
+
+  .hero_svg {
+    transform: scale(1);
+  }
+}
+
+@media (min-width: 868px) {
+  .header h1 {
+    font-size: clamp(7em, 15vw, 15em);
+  }
+
+  .hero {
+    justify-content: space-evenly;
+  }
+}

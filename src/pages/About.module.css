@@ -80,51 +80,6 @@
   font-size: calc(var(--font-size) * 2);
 }
 
-.eventList {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1em;
-  margin-block: 3em;
-}
-
-.event {
-  width: 100%;
-  padding-block: 2em;
-
-  margin: 0;
-  line-height: 1.5;
-  text-align: center;
-  font-size: 1.25em;
-  font-weight: 500;
-}
-
-@media (max-width: 767px) {
-  .eventList > :first-child {
-    background-image: linear-gradient(90deg, #000 50%, transparent 0),
-      linear-gradient(90deg, #000 50%, transparent 0),
-      linear-gradient(90deg, #000 50%, transparent 0),
-      linear-gradient(90deg, #000 50%, transparent 0);
-    background-position: 0 0, 0 14px, 0 calc(100% - 14px), 0 100%;
-    background-repeat: repeat-x, repeat-x, repeat-x, repeat-x;
-    background-size: 24px 1px, 24px 1px, 24px 1px, 24px 1px;
-  }
-
-  .event {
-    background-image: linear-gradient(90deg, #000 50%, transparent 0),
-      linear-gradient(90deg, #000 50%, transparent 0);
-    background-position: 0 calc(100% - 14px), 0 100%;
-    background-repeat: repeat-x, repeat-x;
-    background-size: 24px 1px, 24px 1px;
-  }
-}
-
-.eventBtn {
-  padding-inline: 3em;
-  background-color: var(--white);
-}
-
 /* Location section */
 .locationContainer {
   min-height: 15em;
@@ -196,40 +151,6 @@
     gap: 3.5em;
   }
 
-  .eventList {
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-around;
-    gap: 5em;
-    padding: 3em;
-
-    /* Get 2 sets of dashed rows */
-    background-image: linear-gradient(90deg, #000 50%, transparent 0),
-      linear-gradient(90deg, #000 50%, transparent 0),
-      linear-gradient(90deg, #000 50%, transparent 0),
-      linear-gradient(90deg, #000 50%, transparent 0);
-    /* 1st two sets are for 1st row of dash, last two sets for last row of dash */
-    background-position: 0 0, 0 14px, 0 calc(100% - 14px), 0 100%;
-    /* Repeat the gradient to get the dashed effect for each "row" */
-    background-repeat: repeat-x, repeat-x, repeat-x, repeat-x;
-    background-size: 24px 1px, 24px 1px, 24px 1px, 24px 1px;
-
-    animation: eventBorder 800ms linear infinite normal;
-  }
-
-  .event {
-    width: 33%;
-    margin-block: 2em;
-  }
-
-  .eventBtn {
-    width: fit-content;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%, 25%);
-  }
-
   .locationContainer {
     height: 17.5em;
     column-gap: 2em;
@@ -245,14 +166,5 @@
     width: 100%;
     padding: 1px;
     overflow: hidden;
-  }
-}
-
-@keyframes eventBorder {
-  to {
-    background-position: 0 0, 0 14px, 0 calc(100% - 14px), 0 100%;
-  }
-  from {
-    background-position: 24px 0, 24px 14px, -24px calc(100% - 14px), -24px 100%;
   }
 }

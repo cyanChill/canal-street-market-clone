@@ -1,5 +1,7 @@
 export type TimerType = ReturnType<typeof setTimeout>;
 
+export type EventType = { id: string; date: string; description: string };
+
 export type InfoPageDataType = {
   id: string | number;
   subText: string;
