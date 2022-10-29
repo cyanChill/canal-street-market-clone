@@ -22,8 +22,11 @@ const TransitionProvider = ({ children }: ProviderInterface) => {
     SiteTabs.findIndex((tab) => `/${tab.route}` === location.pathname)
   );
   const [currRoute, setCurrRoute] = useState(location.pathname ?? "/");
+  const [canSwitch, setCanSwitch] = useState(false);
 
   const nextRoute = (routeIdx: number) => {
+    if (!canSwitch) return;
+
     setCurrRoute(`/${SiteTabs[routeIdx].route}`);
     setInProgress(true);
 
@@ -38,9 +41,11 @@ const TransitionProvider = ({ children }: ProviderInterface) => {
   };
 
   useEffect(() => {
+    setCanSwitch(false);
     const timeout = setTimeout(() => {
       setInProgress(false);
-    }, 500);
+      setCanSwitch(true);
+    }, 250);
 
     return () => {
       clearTimeout(timeout);

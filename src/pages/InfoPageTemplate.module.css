@@ -65,6 +65,7 @@
   --top: 50%;
   --left: 50%;
 
+  pointer-events: none;
   z-index: -1;
   height: 400px;
   width: 400px;
@@ -128,11 +129,12 @@
   .wrapper {
     padding: 2em;
     padding-inline-end: 3em;
+    margin-inline-start: -3em;
   }
 
   .header {
     gap: 2em;
-    grid-template-columns: repeat(2, calc((100% - 2em) / 2));
+    grid-template-columns: 2fr 1fr;
   }
 
   .tabLabel {
@@ -150,11 +152,12 @@
   .header h1 {
     line-height: 0.9;
     letter-spacing: 1px;
-    font-size: clamp(8em, 15vw, 15em);
+    font-size: clamp(6em, 10vw, 15em);
     font-weight: 500;
   }
 
   .header img {
+    min-width: auto;
     justify-self: end;
   }
 
@@ -191,6 +194,10 @@
 }
 
 @media (min-width: 868px) {
+  .header h1 {
+    font-size: clamp(7em, 15vw, 15em);
+  }
+
   .hero {
     justify-content: space-evenly;
   }
