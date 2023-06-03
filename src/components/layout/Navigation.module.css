@@ -5,6 +5,7 @@
   width: 100%;
   position: fixed;
   pointer-events: none;
+  overscroll-behavior: none;
 }
 
 .mobileNavContainer.show {

@@ -1,5 +1,6 @@
 body[data-locked="true"] .wrapper {
   overflow-y: hidden;
+  overscroll-behavior: none;
 }
 
 .wrapper {
